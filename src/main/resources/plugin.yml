@@ -1,0 +1,48 @@
+name: sassy-spawn
+version: ${project.version}
+main: com.github.hornta.sassy_spawn.SassySpawnPlugin
+author: hornta
+api-version: 1.13
+softdepend: [Vault]
+commands:
+  spawn:
+  setspawn:
+  delspawn:
+  spawns:
+  sassyspawn:
+    aliases:
+      - ss
+
+permissions:
+  sassyspawn.spawn:
+    description: Access to /spawn
+    default: true
+  sassyspawn.setspawn:
+    description: Access to /setspawn
+    default: op
+  sassyspawn.delspawn:
+    description: Access to /delspawn
+    default: op
+  sassyspawn.spawns:
+    description: Access to /spawns
+    default: true
+  sassyspawn.setspawncost:
+    description: Access to /sassyspawn setspawncost
+    default: op
+  sassyspawn.enable:
+    description: Access to /sassyspawn enable
+    default: op
+  sassyspawn.disable:
+    description: Access to /sassyspawn disable
+    default: op
+  sassyspawn.rename:
+    description: Access to /sassyspawn rename
+    default: op
+  sassyspawn.reload:
+    description: Access to /sassyspawn reload
+    default: op
+  sassyspawn.help:
+    description: Access to /sassyspawn help
+    default: true
+
+
