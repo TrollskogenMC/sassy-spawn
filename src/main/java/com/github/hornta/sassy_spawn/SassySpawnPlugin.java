@@ -49,7 +49,7 @@ public final class SassySpawnPlugin extends JavaPlugin {
     instance = this;
     spawnManager = new SpawnManager(this);
     playerManager = new PlayerManager();
-    targetedPlayers = new TargetedPlayers(this);
+    targetedPlayers = new TargetedPlayers();
     setupConfig();
     setupMessages();
     setupVaultIntegration();

@@ -10,13 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 public class TargetedPlayers {
-  private final SassySpawnPlugin plugin;
   private final HashMap<Player, ArrayList<Entity>> targets = new HashMap<>();
   private final HashMap<Player, LocalDateTime> targetCooldown = new HashMap<>();
-
-  public TargetedPlayers(SassySpawnPlugin plugin) {
-    this.plugin = plugin;
-  }
 
   public void startTarget(Entity entity, Player target) {
     List<Entity> entities = targets.computeIfAbsent(target, player -> new ArrayList<>());
@@ -37,7 +32,8 @@ public class TargetedPlayers {
 
     if (targets.get(player).isEmpty()) {
       targets.remove(player);
-      targetCooldown.put(player, LocalDateTime.now().plusSeconds(SassySpawnPlugin.getInstance().getConfiguration().get(ConfigKey.TARGETED_COOLDOWN)));
+      long seconds = (int)SassySpawnPlugin.getInstance().getConfiguration().get(ConfigKey.TARGETED_COOLDOWN);
+      targetCooldown.put(player, LocalDateTime.now().plusSeconds(seconds));
     }
   }
 
