@@ -28,7 +28,7 @@ public class EntityListener implements Listener {
       return;
     }
 
-    long damagedCooldown = SassySpawnPlugin.getInstance().getConfiguration().get(ConfigKey.DAMAGED_COOLDOWN);
+    long damagedCooldown = (int)SassySpawnPlugin.getInstance().getConfiguration().get(ConfigKey.DAMAGED_COOLDOWN);
     LocalDateTime damagedExpired = LocalDateTime.now().plusSeconds(damagedCooldown);
     SassySpawnPlugin.getPlayerManager().getPlayerData((Player) event.getEntity()).setDamagedExpired(damagedExpired);
   }
