@@ -16,11 +16,9 @@ import org.bukkit.event.entity.EntityTargetEvent;
 import java.time.LocalDateTime;
 
 public class EntityListener implements Listener {
-  private final SassySpawnPlugin plugin;
   private final TargetedPlayers targetedPlayers;
 
-  public EntityListener(SassySpawnPlugin plugin, TargetedPlayers targetedPlayers) {
-    this.plugin = plugin;
+  public EntityListener(TargetedPlayers targetedPlayers) {
     this.targetedPlayers = targetedPlayers;
   }
 
@@ -30,7 +28,9 @@ public class EntityListener implements Listener {
       return;
     }
 
-    plugin.getPlayerManager().getPlayerData((Player) event.getEntity()).setDamagedExpired(LocalDateTime.now().plusSeconds(SassySpawnPlugin.getInstance().getConfiguration().get(ConfigKey.DAMAGED_COOLDOWN)));
+    long damagedCooldown = SassySpawnPlugin.getInstance().getConfiguration().get(ConfigKey.DAMAGED_COOLDOWN);
+    LocalDateTime damagedExpired = LocalDateTime.now().plusSeconds(damagedCooldown);
+    SassySpawnPlugin.getPlayerManager().getPlayerData((Player) event.getEntity()).setDamagedExpired(damagedExpired);
   }
 
   @EventHandler

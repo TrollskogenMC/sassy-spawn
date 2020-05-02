@@ -154,7 +154,7 @@ public final class SassySpawnPlugin extends JavaPlugin {
 
   private void setupEventListeners() {
     getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
-    getServer().getPluginManager().registerEvents(new EntityListener(this, targetedPlayers), this);
+    getServer().getPluginManager().registerEvents(new EntityListener(targetedPlayers), this);
   }
 
   private void setupCommands() {
